@@ -8,19 +8,44 @@
 
 """
 
-# Disable unused imports pylint warning as they are here
-# here for example purposes
-# W0611: 12,0: Unused import Interface
-
-# pylint: disable=W0611
-
 # Zope imports
 from zope.interface import Interface
 from five import grok
-from Products.CMFCore.interfaces import ISiteRoot
 
 # Local imports
-from interfaces import IAddonSpecific, IThemeSpecific
+from interfaces import IAddonSpecific
 
-grok.templatedir("templates")
 grok.layer(IAddonSpecific)
+
+
+class VisualTitle(grok.CodeView):
+    """
+    Extracts visual title from the content.
+    """
+
+    grok.context(Interface)
+
+    def render(self):
+        """
+
+        """
+
+        # Make sure we don't poke parent content properites thru acquisition chain
+        context = self.context.aq_base
+
+        # Check for visual title Archetypes override
+        if hasattr(context, "Schema"):
+            schema = context.Schema()
+            if "visualTitle" in schema:
+                field = schema["visualTitle"]
+                visualTitle = field.get(self.context)
+
+                # Check that visual title has string payload value
+                if visualTitle:
+                    return visualTitle
+
+        # Check for normal title
+        if hasattr(context, "Title"):
+            return context.Title()
+
+        return "Page title"

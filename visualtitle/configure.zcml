@@ -16,6 +16,8 @@
 
   <i18n:registerTranslations directory="locales" />
 
+  <include package="archetypes.schemaextender" />
+
   <genericsetup:registerProfile
       name="default"
       title="visualtitle"
@@ -24,22 +26,8 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+
   <cmf:registerDirectory name="skins" directory="skins" recursive="True"/>
 
-  <!-- Declare mapping between portal_skins theme name and Zope 3 browser layers -->
-  <interface
-      interface=".interfaces.IThemeSpecific"
-      type="zope.publisher.interfaces.browser.IBrowserSkinType"
-      name="visualtitle"
-      />
-
-  <!--
-    Load template overrides using z3c.jbot
-  -->
-  <include package="z3c.jbot" file="meta.zcml" />
-
-  <browser:jbot
-      directory="templates"
-      layer=".interfaces.IAddonSpecific" />
 
 </configure>

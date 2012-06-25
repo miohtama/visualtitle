@@ -1,10 +1,15 @@
-/**
- * Your CSS styles go here.
- * This file is deployed as ++resource++visualtitle/main.css on your site 
- * and automatically included in merge bundles via cssregistry.xml.
- *
- * More information
- *
- * http://collective-docs.readthedocs.org/en/latest/templates_css_and_javascripts/css.html
- */ 
+/* Make title and visual title fields similar */
 
+.field input[type="text"][name$=".visualTitle"], input#title {
+    width: 100%;
+}
+
+#content .field input[type="text"][name$=".visualTitle"],
+#archetypes-fieldname-visualTitle input {
+    color: Black;
+    font-family: "Helvetica Neue",Arial,FreeSans,sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: -0.05em;
+    line-height: 125%;
+}
