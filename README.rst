@@ -26,7 +26,7 @@ Plone 4+
 Installation
 -------------
 
-Add ``visualtitle`` in buildout.cfg
+Add ``visualtitle`` in buildout.cfg::
 
     [buildout]
 
