@@ -12,11 +12,14 @@
 
 """
 
+import os
 from setuptools import setup
 
 setup(name="visualtitle",
     version="0.1",
-    description="A Plone theme",
+    long_description=open("README.rst").read() + "\n\n" +
+                       open(os.path.join("docs", "HISTORY.txt")).read(),
+    description="Separate content and navigation titles for Plone CMS",
     author="Mikko Ohtamaa",
     author_email="mikko@opensourcehacker.com",
     url="http://opensourcehacker.com",

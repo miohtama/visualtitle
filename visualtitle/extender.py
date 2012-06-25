@@ -5,6 +5,8 @@
 
 """
 
+
+
 # Zope imports
 from five import grok
 
@@ -24,6 +26,8 @@ from archetypes.schemaextender.field import ExtensionField
 from .interfaces import IAddonSpecific
 from visualtitle import _
 
+# R0201: 62,4:VisualTitleExtender.fiddle: Method could be a function
+# pylint: disable=R0201
 
 class ExtensionStringField(ExtensionField, atapi.StringField):
     """ Enhance bool field  to be used with schema extender"""

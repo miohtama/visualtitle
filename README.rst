@@ -33,7 +33,7 @@ Install the add-on using the add-on installer in Site Setup.
 
 .. note ::
 
-    For Plone 4.1 or lower: Add Dexterity ``extends = `` line in buildout.cfg
+    For Plone 4.1 or lower: Add Dexterity extends = line in buildout.cfg
 
 
 * http://plone.org/products/dexterity/documentation/how-to/install
@@ -89,10 +89,22 @@ This add-on overrides ``kss_generic_macros`` template for Plone 4+,
 adds new fields using archetypes.schemaextender and a helper view
 which you can call from the code to get the visual title.
 
+i18n
+-----
+
+Yep, it does.
+
 Source and issue tracking
 ---------------------------
 
 * https://github.com/miohtama/visualtitle
+
+Policy and source coding conventions
++++++++++++++++++++++++++++++++++++++
+
+The code follows Pylint policies defined in `VVV policy file <http://pypi.python.org/pypi/vvv>`_.
+
+The code is PEP-8 compatible for the parts where PEP-8 does not get confused.
 
 Author
 --------
