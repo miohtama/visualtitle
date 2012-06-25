@@ -2,10 +2,10 @@
 Changelog
 ============
 
-0.2.2 (unreleased)
+0.2.2 (2012-06-25)
 ------------------
 
-- Nothing changed yet.
+- Attempt #3 of fixing .mo distribution problems
 
 
 0.2.1 (2012-06-25)
