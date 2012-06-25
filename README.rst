@@ -1,3 +1,9 @@
+=================
+ Visual Title
+=================
+
+.. contents:: :local:
+
 Introduction
 -------------
 
