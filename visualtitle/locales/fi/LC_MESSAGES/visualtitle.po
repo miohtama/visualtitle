@@ -16,13 +16,13 @@ msgstr ""
 
 #: ./extender.py:35
 msgid "Different title for in-page text (as opposite to navigation title). Leave empty to use the main title everywhere."
-msgstr ""
+msgstr "Leipätekstin yhteydessä käytettävä pitempi otsikko"
 
 #: ./extender.py:73
 msgid "The navigational heading of the content"
-msgstr ""
+msgstr "Navigaatiossa käytettävä sisällön otsikko"
 
 #: ./extender.py:34
 msgid "Visual Title"
-msgstr ""
+msgstr "Visuaalinen otsikko"
 

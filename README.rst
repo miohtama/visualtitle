@@ -1,12 +1,16 @@
 Introduction
 -------------
 
-This add-on adds separate navigation title and visual title (in page text) fields for Plone.
-This is useful for marketing sites where
+This add-on separates navigation title and visual title fields in Plone.
+This serves the needs of marketing message where
 
-* The author wants long, selling, title for the page
+* The author wants long, marketing pitch tuned, title for the page
 
-* The same long title is too long to be displayed in navigation trees
+* For the navigation tree, shorter, informative title is preferred
+
+The add-on is also useful for languages preferring long words, like German and Finnish,
+where the actual title does not fit well into the navigation tree and
+a shortened title may be preferred.
 
 Compatibility
 ----------------
@@ -15,10 +19,6 @@ Plone 4+
 
 Installation
 -------------
-
-Plone 4.1 or lower: Add Dexterity ``extends = `` line in buildout.cfg
-
-* http://plone.org/products/dexterity/documentation/how-to/install
 
 Add ``visualtitle`` in buildout.cfg
 
@@ -31,8 +31,17 @@ Add ``visualtitle`` in buildout.cfg
 
 Install the add-on using the add-on installer in Site Setup.
 
+.. note ::
+
+    For Plone 4.1 or lower: Add Dexterity ``extends = `` line in buildout.cfg
+
+
+* http://plone.org/products/dexterity/documentation/how-to/install
+
 Usage
 ------
+
+The add-on currently supports `Archetypes <http://collective-docs.readthedocs.org/en/latest/content/archetypes/index.html>`_ based content.
 
 When the add-on is activated you see title and visual title fields on Archetypes edit pages
 on all Archetypes content pages.
@@ -65,7 +74,7 @@ Correct example 2::
          Generic KSS Title. Is rendered with class="documentFirstHeading".
     </h1>
 
-If you do like this for your own content types it won't work::
+If you do like this for your own content types the visual title magic won't take a place::
 
     <h1 class="documentFirstHeading">My title</h1>
 
@@ -76,5 +85,17 @@ You can also access the visual title directly (not recommended)::
 Internals
 -----------
 
-This add-on overrides Title viewlet for Plone 4+
+This add-on overrides ``kss_generic_macros`` template for Plone 4+,
+adds new fields using archetypes.schemaextender and a helper view
+which you can call from the code to get the visual title.
+
+Source and issue tracking
+---------------------------
+
+* https://github.com/miohtama/visualtitle
+
+Author
+--------
+
+`Mikko Ohtamaa <http://opensourcehacker.com>`_
 
