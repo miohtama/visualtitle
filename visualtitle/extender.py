@@ -5,9 +5,6 @@
 
 """
 
-# Python imports
-import logging
-
 # Zope imports
 from five import grok
 
@@ -21,14 +18,27 @@ except ImportError:
 from Products.Archetypes.interfaces import IBaseObject
 
 # 3rd party
-from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
+from archetypes.schemaextender.interfaces import IBrowserLayerAwareExtender, ISchemaModifier
 from archetypes.schemaextender.field import ExtensionField
 
-logger = logging.getLogger("visualtitle")
+from .interfaces import IAddonSpecific
+from visualtitle import _
 
 
 class ExtensionStringField(ExtensionField, atapi.StringField):
     """ Enhance bool field  to be used with schema extender"""
+
+FIELDS = [
+        ExtensionStringField("visualTitle",
+            widget=atapi.StringWidget(
+                label=_(u"Visual Title"),
+                description=_(u"Different title for in-page text (as opposite to navigation title). Leave empty to use the main title everywhere."),
+            ),
+            default="",
+            # On which edit tab this field appears
+            languageIndependent=False
+        )
+]
 
 
 class VisualTitleExtender(grok.Adapter):
@@ -37,42 +47,29 @@ class VisualTitleExtender(grok.Adapter):
     """
 
     grok.context(IBaseObject)
-    grok.implements(IOrderableSchemaExtender)
+    # Tell that we fiddle()
+    grok.provides(ISchemaModifier)
+
+    # Tell that we getOrder() + we are bound to a layer
+    grok.implements(IBrowserLayerAwareExtender)
     grok.name("visualtitle")
 
-    fields = [
-            ExtensionStringField("visualTitle",
-                widget=atapi.StringWidget(
-                    label="Visual Title",
-                    description="Different title for in-page text (as opposite to navigation title). Leave empty to use the main title everywhere."
-                ),
-                default="",
-                # On which edit tab this field appears
-                languageIndependent=False
-            )
-    ]
-
-    def __init__(self, context):
-        self.context = context
-
-    def getOrder(self, schematas):
-        """ Manipulate the order in which fields appear.
-
-        @param schematas: Dictonary of schemata name -> field lists
-
-        @return: Dictionary of reordered field lists per schemata.
-        """
-
-        # Replace the field order for the "default" schemata
-        default = schematas["default"]
-
-        default.remove("visualTitle")
-
-        # Insert as 2nd field
-        default.insert(2, "visualTitle")
-
-        return schematas
+    layer = IAddonSpecific
 
     def getFields(self):
         return self.fields
+
+    def fiddle(self, schema):
+        """
+        Override main title description
+        """
+
+        # Add visualTitle field
+        for field in FIELDS:
+            schema.addField(field)
+
+        schema.moveField("visualTitle", after="title")
+
+        schema["title"].description = _(u"The navigational heading of the content")
+
 
