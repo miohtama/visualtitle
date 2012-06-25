@@ -2,10 +2,12 @@
 Changelog
 ============
 
-0.2 (unreleased)
+0.2 (2012-06-25)
 ----------------
 
-- Nothing changed yet.
+- Fixed distribution of .mo files
+
+- Do not install as theme
 
 
 0.1 (2012-06-25)

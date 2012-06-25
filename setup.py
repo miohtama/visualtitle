@@ -16,7 +16,7 @@ import os
 from setuptools import setup
 
 setup(name="visualtitle",
-    version='0.2.dev0',
+    version='0.2',
     long_description=open("README.rst").read() + "\n\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
     description="Separate content and navigation titles for Plone CMS",
