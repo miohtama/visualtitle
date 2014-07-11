@@ -18,7 +18,7 @@ msgstr ""
 "Domain: visualtitle\n"
 
 #: ./extender.py:35
-msgid "Different title for in-page text (as opposite to navigation title). Leave empty to use the main title everywhere."
+msgid "Different title for in-page text (as opposed to the navigation title). Leave empty to use the main title everywhere."
 msgstr ""
 
 #: ./extender.py:73

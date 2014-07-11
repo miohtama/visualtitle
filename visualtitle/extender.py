@@ -36,7 +36,7 @@ FIELDS = [
         ExtensionStringField("visualTitle",
             widget=atapi.StringWidget(
                 label=_(u"Visual Title"),
-                description=_(u"Different title for in-page text (as opposite to navigation title). Leave empty to use the main title everywhere."),
+                description=_(u"Different title for in-page text (as opposed to the navigation title). Leave empty to use the main title everywhere."),
             ),
             default="",
             # On which edit tab this field appears
