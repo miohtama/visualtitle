@@ -18,7 +18,7 @@ from interfaces import IAddonSpecific
 grok.layer(IAddonSpecific)
 
 
-class VisualTitle(grok.CodeView):
+class VisualTitle(grok.View):
     """
     Extracts visual title from the content.
     """
