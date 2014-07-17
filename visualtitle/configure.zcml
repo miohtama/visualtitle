@@ -13,6 +13,10 @@
   <five:registerPackage package="." initialize=".initialize" />
 
   <grok:grok package="." />
+  
+  <browser:resourceDirectory
+    name="visualtitle"
+    directory="static" />
 
   <i18n:registerTranslations directory="locales" />
 
