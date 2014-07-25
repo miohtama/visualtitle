@@ -2,33 +2,39 @@
 Changelog
 ============
 
-0.2.3 (unreleased)
-------------------
+0.3 (2014-07-25)
+----------------
 
-- Nothing changed yet.
+- Register the 'static' directory in ZCML (grok no longer does this) [djowett]
+  
+- Correct English on field description [djowett]
+  
+- Insert the visualtitle layer into all existing skins [djowett]
+  
+- Fix for error: AttributeError: 'module' object has no attribute 'CodeView' [djowett]
 
 
 0.2.2 (2012-06-25)
 ------------------
 
-- Attempt #3 of fixing .mo distribution problems
+- Attempt #3 of fixing .mo distribution problems [miohtama]
 
 
 0.2.1 (2012-06-25)
 ------------------
 
-- Attempt #2 of fixing .mo distribution problems
+- Attempt #2 of fixing .mo distribution problems [miohtama]
 
 
 0.2 (2012-06-25)
 ----------------
 
-- Fixed distribution of .mo files
+- Fixed distribution of .mo files [miohtama]
 
-- Do not install as theme
+- Do not install as theme [miohtama]
 
 
 0.1 (2012-06-25)
 ----------------
 
-- Initial release
+- Initial release [miohtama]
