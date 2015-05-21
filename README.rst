@@ -18,6 +18,10 @@ The add-on is also useful for languages preferring long words, like German and F
 where the actual title does not fit well into the navigation tree and
 a shortened title may be preferred.
 
+Not Entirely Unlike
++++++++++++++++++++
+`collective.navigationtitle <https://github.com/collective/collective.navigationtitle>`_ - provides a dexterity behaviour that does a similar job for dexterity types.
+
 Compatibility
 ----------------
 
@@ -51,10 +55,6 @@ The add-on currently supports `Archetypes <http://collective-docs.readthedocs.or
 
 When the add-on is activated you see title and visual title fields on Archetypes edit pages
 on all Archetypes content pages.
-
-.. note ::
-
-    Dexterity support is planned, but looking for the sponsor.
 
 Limitations
 -------------
